@@ -1,18 +1,18 @@
-# Adidas Satış Tahmini Projesi
+# Adidas Sales Prediction Project
 
-Bu proje, Adidas markasına ait çeyrek dönemlik satış verilerini kullanarak gelecekteki satışları tahmin etmeyi amaçlamaktadır. Zaman serisi analizi ve SARIMA modellemesi kullanılarak satış tahminleri yapılmıştır.
+This project aims to predict future sales of the Adidas brand using quarterly sales data. Time series analysis and SARIMA modeling are used to make sales forecasts.
 
-## İçerik
+## Contents
 
-1. [Gereksinimler](#gereksinimler)
-2. [Veri Seti](#veri-seti)
-3. [Proje Adımları](#proje-adımları)
-4. [Sonuçlar](#sonuçlar)
-5. [COVID-19 Etkisi](#covid-19-etkisi)
+1. [Requirements](#requirements)
+2. [Dataset](#dataset)
+3. [Project Steps](#project-steps)
+4. [Results](#results)
+5. [COVID-19 Impact](#covid-19-impact)
 
-## Gereksinimler
+## Requirements
 
-Projeyi çalıştırmak için aşağıdaki Python kütüphanelerini kurmanız gerekmektedir:
+To run this project, you need to install the following Python libraries:
 
 ```
 pandas
@@ -23,26 +23,26 @@ statsmodels
 plotly
 ```
 
-Bu kütüphaneleri pip kullanarak kurabilirsiniz:
+You can install these libraries using pip:
 
 ```
 pip install pandas numpy matplotlib seaborn statsmodels plotly
 ```
 
-## Veri Seti
+## Dataset
 
-Proje, 'adidas-quarterly-sales.csv' adlı bir CSV dosyasını kullanmaktadır. Bu dosya, Adidas'ın çeyrek dönemlik satış verilerini içermektedir.
+The project uses a CSV file named 'adidas-quarterly-sales.csv'. This file contains Adidas' quarterly sales data.
 
-## Proje Adımları
+## Project Steps
 
-1. Veri Yükleme ve Ön İşleme
-2. Veri Görselleştirme
-3. Zaman Serisi Analizi
-4. SARIMA Modeli Oluşturma
-5. Gelecek Satış Tahmini
-6. COVID-19 Etkisinin Analizi
+1. Data Loading and Preprocessing
+2. Data Visualization
+3. Time Series Analysis
+4. SARIMA Model Creation
+5. Future Sales Prediction
+6. Analysis of COVID-19 Impact
 
-### 1. Veri Yükleme ve Ön İşleme
+### 1. Data Loading and Preprocessing
 
 ```python
 import pandas as pd
@@ -56,7 +56,7 @@ warnings.filterwarnings("ignore")
 df = pd.read_csv('adidas-quarterly-sales.csv')
 ```
 
-### 2. Veri Görselleştirme
+### 2. Data Visualization
 
 ```python
 import plotly.express as px
@@ -64,7 +64,7 @@ fig = px.line(df, x='Time Period', y='Revenue')
 fig.show()
 ```
 
-### 3. Zaman Serisi Analizi
+### 3. Time Series Analysis
 
 ```python
 from statsmodels.tsa.seasonal import seasonal_decompose
@@ -74,7 +74,7 @@ fig.set_size_inches(15, 10)
 fig.show()
 ```
 
-### 4. SARIMA Modeli Oluşturma
+### 4. SARIMA Model Creation
 
 ```python
 import statsmodels.api as sm
@@ -83,7 +83,7 @@ model = model.fit()
 print(model.summary())
 ```
 
-### 5. Gelecek Satış Tahmini
+### 5. Future Sales Prediction
 
 ```python
 y_pred = model.predict(start=len(df), end=len(df)+20)
@@ -92,7 +92,7 @@ y_pred.plot()
 plt.show()
 ```
 
-### 6. COVID-19 Etkisinin Analizi
+### 6. Analysis of COVID-19 Impact
 
 ```python
 df_without_corona = pd.DataFrame(df['Revenue'][:75], columns=['Revenue'])
@@ -104,14 +104,14 @@ predictions.plot()
 plt.show()
 ```
 
-## Sonuçlar
+## Results
 
-Proje, Adidas'ın satış verilerini analiz ederek gelecekteki satış tahminlerini sunmaktadır. SARIMA modeli kullanılarak yapılan tahminler, genel satış trendini ve mevsimsel değişimleri yakalamaktadır.
+The project analyzes Adidas' sales data and provides future sales predictions. The predictions made using the SARIMA model capture the general sales trend and seasonal variations.
 
-## COVID-19 Etkisi
+## COVID-19 Impact
 
-Projenin son bölümünde, COVID-19 pandemisinin etkisini analiz etmek için pandemi öncesi veriler kullanılarak bir tahmin yapılmıştır. Bu analiz, pandeminin Adidas satışları üzerindeki potansiyel etkisini görselleştirmektedir.
+In the final section of the project, a prediction was made using pre-pandemic data to analyze the impact of the COVID-19 pandemic. This analysis visualizes the potential effect of the pandemic on Adidas sales.
 
 ---
 
-Bu proje, veri analizi ve zaman serisi tahmini konularında bir örnek çalışma sunmaktadır. Herhangi bir soru veya geri bildiriminiz varsa, lütfen iletişime geçmekten çekinmeyin.
+This project presents a case study on data analysis and time series prediction. If you have any questions or feedback, please don't hesitate to get in touch.
