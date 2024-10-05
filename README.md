@@ -1,8 +1,8 @@
-# Adidas Sales Prediction Project
+# 👟 Adidas Sales Prediction Project 👟
 
 This project aims to predict future sales of the Adidas brand using quarterly sales data. Time series analysis and SARIMA modeling are used to make sales forecasts.
 
-## Contents
+## 📚 Contents
 
 1. [Requirements](#requirements)
 2. [Dataset](#dataset)
@@ -104,7 +104,7 @@ predictions.plot()
 plt.show()
 ```
 
-## Results
+## 🏆 Results
 
 The project analyzes Adidas' sales data and provides future sales predictions. The predictions made using the SARIMA model capture the general sales trend and seasonal variations.
 
